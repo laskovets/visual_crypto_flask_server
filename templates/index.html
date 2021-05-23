@@ -1,0 +1,35 @@
+<!-- templates/index.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+  Experiments table (for all users)
+</h1>
+<table width="100%" border="1" cellpadding="4">
+  <tr>
+    <td> id </td>
+    <td> user_email </td>
+    <td> successful </td>
+    <td> finished </td>
+    <td> fail_counter </td>
+    <td> password </td>
+    <td> failed_passwords </td>
+    <td> duration </td>
+    <td> creation_date </td>
+  </tr>
+  {% for row in rows %}
+  <tr>
+    <td>{{ row.id }}</td>
+    <td>{{ row.user_email }}</td>
+    <td>{{ row.successful }}</td>
+    <td>{{ row.finished }}</td>
+    <td>{{ row.fail_counter }}/10</td>
+    <td>{{ row.original_password }}</td>
+    <td>{{ row.failed_passwords }}</td>
+    <td>{{ row.duration }}</td>
+    <td>{{ row.creation_date }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
